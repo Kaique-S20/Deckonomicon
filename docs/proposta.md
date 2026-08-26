@@ -49,6 +49,7 @@ Banco de dados relacional (PostgreSQL).
 ## 12. Diagrama da visão geral da solução
 A arquitetura do sistema seguirá um modelo Cliente-Servidor com integração a uma API externa.
 
+```text
 [ Cliente (Front-end) ]
        |
        | (1) Requisições HTTP (REST) / JSON
@@ -61,4 +62,5 @@ A arquitetura do sistema seguirá um modelo Cliente-Servidor com integração a 
  SQL   |                                    | Atualização Diária de Preços
        v                                    v
 [ Banco de Dados Relacional ]        [ API Externa (Scryfall) ]
-(PostgreSQL)                         (Catálogo de Cartas e Preços)
+(PostgreSQL)                         (Catálogo de Cartas e Preços) 
+```
