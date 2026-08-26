@@ -1,4 +1,4 @@
-#Deckonomicon
+# Deckonomicon
 
 No jogo de cartas Magic The Gathering, os jogadores lidam com a dificuldade de organização de cartas para seus decks e principalmente seus preços,
 além de exigir o refinamento de cartas melhores e de pesquisar por cartas mais eficientes em plataformas desconexas.
