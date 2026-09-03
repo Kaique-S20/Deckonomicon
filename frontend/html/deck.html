@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck: Fome Insaciável - Deckonomicon</title>
+</head>
+<body>
+
+    <header>
+        <h2>Deckonomicon</h2>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="decks.html">Voltar para Meus Decks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <!-- Formulário para adicionar novas cartas ao baralho -->
+        <section class="adicionar-carta">
+            <form action="#">
+                <label for="busca-carta">Adicionar carta ao deck:</label>
+                <input type="text" id="busca-carta" placeholder="Digite o nome da carta..." required>
+                <button type="submit">Adicionar</button>
+            </form>
+        </section>
+
+        <!-- Layout do Deck -->
+        <div class="layout-construtor">
+            
+            <!-- Barra lateral exclusiva do Comandante -->
+            <aside class="comandante-area">
+                <h2>Comandante</h2>
+                <article>
+                    <figure>
+                        <img src="https://placehold.co/250x350/png" alt="Arte da carta Ygra, Eater of All">
+                        <figcaption>Ygra, Eater of All</figcaption>
+                    </figure>
+                    <div class="estatisticas">
+                        <p>Total de Cartas: 100</p>
+                        <p>Valor Estimado: $ 185.00</p>
+                    </div>
+                </article>
+            </aside>
+
+            <!-- Lista de cartas dividida em categorias semânticas -->
+            <section class="lista-cartas">
+                
+                <section class="categoria">
+                    <h3>Criaturas (28)</h3>
+                    <ul>
+                        <li>1x Gilded Goose - $ 1.50</li>
+                        <li>1x Ravenous Squirrel - $ 0.75</li>
+                        <li>1x Scavenging Ooze - $ 0.50</li>
+                    </ul>
+                </section>
+
+                <section class="categoria">
+                    <h3>Mágicas Instantâneas e Feitiços (15)</h3>
+                    <ul>
+                        <li>1x Assassin's Trophy - $ 4.00</li>
+                        <li>1x Cultivate - $ 1.00</li>
+                    </ul>
+                </section>
+
+                <section class="categoria">
+                    <h3>Artefatos (10)</h3>
+                    <ul>
+                        <li>1x Sol Ring - $ 1.50</li>
+                        <li>1x Arcane Signet - $ 0.90</li>
+                    </ul>
+                </section>
+
+                <section class="categoria">
+                    <h3>Terrenos (36)</h3>
+                    <ul>
+                        <li>1x Command Tower - $ 0.50</li>
+                        <li>1x Overgrown Tomb - $ 12.00</li>
+                        <li>17x Floresta - $ 0.00</li>
+                        <li>17x Pântano - $ 0.00</li>
+                    </ul>
+                </section>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Deckonomicon. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
