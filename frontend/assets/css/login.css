@@ -1,0 +1,156 @@
+/* =========================================
+   ESTILOS DA TELA DE LOGIN (login.css)
+========================================= */
+
+/* Centraliza o conteúdo principal vertical e horizontalmente */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; 
+    padding: 40px 20px;
+}
+
+/* O "Card" do formulário */
+.login-container {
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: var(--brand-color);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Inputs e Labels */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.input-group label {
+    color: var(--text-secondary);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 2px rgba(181, 232, 83, 0.15);
+}
+
+/* Botão de Confirmar */
+.btn-login {
+    background-color: var(--brand-color);
+    color: #121214;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: var(--brand-hover);
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+/* Links adicionais (Cadastre-se, Esqueceu a Senha) */
+.links-adicionais, 
+.forgot {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.login-container a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+    margin-left: 5px;
+}
+
+.login-container a:hover {
+    color: var(--brand-color);
+    text-decoration: underline;
+}
+
+/* Centraliza a logo no cabeçalho só na tela de login */
+header {
+    justify-content: center;
+}
+
+/* =========================================
+   AJUSTES DE RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+/* Garante que o cálculo de tamanho dos elementos inclua o padding e bordas */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Garante que a página ocupe a tela toda e empilhe Header, Main e Footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Ajustes específicos para Celulares (Telas até 480px) */
+@media (max-width: 480px) {
+    main {
+        padding: 20px 10px; /* Diminui o recuo ao redor do card */
+    }
+
+    .login-container {
+        padding: 30px 20px; /* Diminui o padding interno do card para sobrar mais espaço para os inputs */
+    }
+
+    .login-container h2 {
+        font-size: 1.5rem; /* Diminui um pouco o título para não quebrar em duas linhas */
+    }
+
+    .input-group label {
+        font-size: 0.9rem;
+    }
+
+    .input-group input, 
+    .btn-login {
+        padding: 12px; /* Inputs um pouco menores para telas mobile */
+        font-size: 0.95rem;
+    }
+}

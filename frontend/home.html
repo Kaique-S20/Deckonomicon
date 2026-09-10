@@ -3,44 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Deckonomicon</title>
+    <title>Home - DECKONOMICON</title>
+    
+    <!-- Puxa o tema escuro global -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Estilo específico da busca centralizada -->
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
 
+    <!-- Novo Cabeçalho padronizado (Igual ao da Comunidade) -->
     <header>
-        <header>
-        <h2>Deckonomicon</h2>
-        
-        <!-- Navegação principal do site -->
+        <h2>DECKONOMICON</h2>
         <nav aria-label="Navegação Principal">
             <ul>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="decks.html">Meus Decks</a></li>
-                <li><a href="#">Comunidade</a></li>
+                <li><a href="meus-decks.html">Meus Decks</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="../index.html">Sair</a></li>
             </ul>
         </nav>
-
-        <!-- Menu de Ações do Usuário (Baseado na imagem) -->
-        <nav aria-label="Menu do Usuário" class="user-actions">
-            <ul>
-                <!-- Ícone de Adicionar (+) -->
-                <li>
-                    <a href="criar-deck.html" aria-label="Criar Novo Deck">+ Criar</a>
-                </li>
-                
-                <li>
-                    <details>
-                        <summary>Minha Conta ▼</summary>
-                        <ul>
-                            <li><a href="perfil.html">Ver Perfil</a></li>
-                            <li><a href="configuracoes.html">Configurações</a></li>
-                            <li><a href="index.html">Sair</a></li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        </nav>
-    </header>
     </header>
 
     <main>
@@ -57,7 +42,6 @@
                     
                     <input type="radio" id="filtro-decks" name="tipo_busca" value="decks">
                     <label for="filtro-decks">Decks</label>
-                    
                 </fieldset>
 
                 <div class="input-busca-group">

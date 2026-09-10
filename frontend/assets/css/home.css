@@ -1,0 +1,191 @@
+/* =========================================
+   ESTILOS DA TELA HOME (home.css)
+========================================= */
+
+.hero-busca {
+    max-width: 650px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-busca h1 {
+    font-size: 2.2rem;
+    color: var(--brand-color);
+    letter-spacing: 1px;
+}
+
+.hero-busca p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.hero-busca form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Filtros por Rádio (<fieldset>) */
+.hero-busca fieldset {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.hero-busca fieldset legend {
+    color: var(--brand-color);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-busca fieldset label {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-busca fieldset input[type="radio"] {
+    accent-color: var(--brand-color);
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+/* Grupo do Input de Pesquisa */
+.input-busca-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.input-busca-group label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-busca-group input[type="search"] {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-busca-group input[type="search"]:focus {
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 2px rgba(181, 232, 83, 0.15);
+}
+
+.input-busca-group button[type="submit"] {
+    margin-top: 5px;
+    background-color: var(--brand-color);
+    color: #121214;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.input-busca-group button[type="submit"]:hover {
+    background-color: var(--brand-hover);
+}
+
+.input-busca-group button[type="submit"]:active {
+    transform: scale(0.99);
+}
+
+
+/* =========================================
+   APENAS RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Corrige o Menu Superior (Header) para não espremer os links */
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        list-style: none;
+    }
+
+    header nav a {
+        font-size: 0.9rem;
+    }
+
+    /* 2. Ajusta o tamanho da caixa de busca no celular */
+    .hero-busca {
+        margin: 40px auto;
+        padding: 25px 20px;
+        width: 92%; /* Impede o card de colar nas bordas do aparelho */
+    }
+
+    .hero-busca h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-busca p {
+        font-size: 0.9rem;
+    }
+
+    /* 3. O SEGREDO DOS RADIOS: Força cada par (Bolinha + Texto) a ficar na mesma linha horizontal */
+    .hero-busca fieldset {
+        display: grid;
+        grid-template-columns: auto auto; /* Cria duas colunas perfeitas lado a lado */
+        justify-content: center;
+        align-items: center;
+        gap: 10px 20px; /* Espaço controlado entre as opções */
+        padding: 15px;
+    }
+
+    /* Alinha perfeitamente a bolinha com o texto correspondente */
+    .hero-busca fieldset input[type="radio"] {
+        margin: 0;
+        justify-self: end;
+    }
+
+    .hero-busca fieldset label {
+        justify-self: start;
+        white-space: nowrap; /* Impede o texto de pular linha sozinho */
+    }
+}
+
+
+

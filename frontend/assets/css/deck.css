@@ -1,0 +1,263 @@
+/* =========================================
+   ESTILOS DA TELA DE DECK (deck.css)
+========================================= */
+
+.layout-construtor {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Área do Comandante (Sidebar) */
+.comandante-area {
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.comandante-area h2 {
+    color: var(--brand-color);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+
+.comandante-area figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.comandante-area img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.comandante-area figcaption {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.estatisticas {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Conteúdo Principal do Deck */
+.conteudo-principal-deck {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Formulário de Adicionar Carta */
+.adicionar-carta {
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.adicionar-carta form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.adicionar-carta label {
+    width: 100%;
+    font-weight: bold;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.adicionar-carta input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.adicionar-carta input[type="text"]:focus {
+    border-color: var(--brand-color);
+}
+
+.adicionar-carta button[type="submit"] {
+    background-color: var(--brand-color);
+    color: #111;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: auto; /* Garante que o botão ocupe apenas o espaço do texto */
+}
+
+.adicionar-carta button[type="submit"]:hover {
+    background-color: var(--brand-hover);
+}
+
+/* Listas de Categorias de Cartas */
+.lista-cartas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.categoria {
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.categoria h3 {
+    color: var(--brand-color);
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+}
+
+.categoria ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.categoria li {
+    background-color: var(--bg-color);
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+/* Responsividade para Desktop (Grid do Construtor) */
+@media (min-width: 1024px) {
+    .layout-construtor {
+        grid-template-columns: 300px 1fr;
+        align-items: start;
+    }
+}
+/* =========================================
+   APENAS RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+@media (max-width: 1023px) {
+    /* 1. Corrige o Menu Superior específico desta tela */
+    .top-bar .nav-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .top-bar nav ul {
+        display: flex;
+        gap: 15px;
+        list-style: none;
+    }
+
+    /* 2. Formulário: Empilha o input e o botão para não esmagar no celular */
+    .adicionar-carta form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .adicionar-carta input[type="text"] {
+        width: 100%;
+    }
+
+    /* Faz o botão ocupar toda a largura do formulário, facilitando o toque */
+    .adicionar-carta button[type="submit"] {
+        width: 100%;
+        padding: 14px;
+    }
+
+    /* 3. Ajuste de Imagem: Garante que a carta do comandante fique centralizada */
+    .comandante-area img {
+        max-width: 200px;
+    }
+}
+/* =========================================
+   APENAS RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Corrige o Menu Superior específico desta tela */
+    .top-bar .nav-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .top-bar nav ul {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links quebrem de linha de forma organizada */
+        justify-content: center;
+        gap: 12px;
+        list-style: none;
+    }
+
+    .top-bar nav a {
+        font-size: 0.9rem;
+    }
+
+    /* 2. Remove margens excessivas do construtor no celular */
+    .layout-construtor {
+        margin: 15px auto;
+        padding: 0 15px;
+    }
+
+    /* 3. Ajusta o formulário de adicionar carta */
+    .adicionar-carta form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .adicionar-carta input[type="text"] {
+        width: 100%;
+    }
+
+    .adicionar-carta button[type="submit"] {
+        width: 100%;
+        padding: 14px;
+    }
+
+    /* 4. Garante que a imagem do Comandante não quebre o tamanho da tela */
+    .comandante-area img {
+        max-width: 180px;
+    }
+}
+

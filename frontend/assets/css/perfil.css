@@ -1,0 +1,206 @@
+/* =========================================
+   ESTILOS DA TELA DE PERFIL (perfil.css)
+========================================= */
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Cabeçalho do Perfil (Avatar e Nome) */
+.perfil-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: var(--surface-color);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.perfil-cabecalho figure img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Transforma a imagem num círculo perfeito */
+    border: 3px solid var(--brand-color);
+    object-fit: cover;
+}
+
+.perfil-cabecalho h1 {
+    color: var(--brand-color);
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.perfil-cabecalho p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Layout de Grade para Estatísticas e Atividades */
+.layout-perfil {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Coluna de estatísticas menor, atividades maior */
+    gap: 25px;
+    align-items: start;
+}
+
+.estatisticas-usuario,
+.atividade-recente {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.estatisticas-usuario h2,
+.atividade-recente h2 {
+    color: var(--brand-color);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Lista de Estatísticas */
+.estatisticas-usuario ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.estatisticas-usuario li {
+    background-color: var(--bg-color);
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+/* Lista de Atividades */
+.atividade-recente article {
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+}
+
+.atividade-recente article:last-child {
+    margin-bottom: 0;
+}
+
+.atividade-recente p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.atividade-recente time {
+    color: var(--brand-color);
+    font-weight: bold;
+}
+
+.atividade-recente a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.atividade-recente a:hover {
+    color: var(--brand-color);
+    text-decoration: underline;
+}
+
+/* Responsividade (empilha tudo no celular) */
+@media (max-width: 768px) {
+    .layout-perfil {
+        grid-template-columns: 1fr;
+    }
+    
+    .perfil-cabecalho {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   AJUSTES GLOBAIS E RESPONSIVIDADE
+========================================= */
+
+/* Evita que paddings e bordas quebrem as larguras dos elementos */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Garante espaçamento na tag principal */
+main {
+    padding: 0 20px;
+}
+
+/* 📱 Ajustes para Tablets e Celulares (Telas até 768px) */
+@media (max-width: 768px) {
+    
+    /* 1. Ajuste do Menu Superior (Header) */
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap; /* Faz os links pularem de linha se faltar espaço */
+        justify-content: center;
+        gap: 12px;
+        list-style: none;
+    }
+
+    header nav a {
+        font-size: 0.9rem; /* Diminui levemente o texto do menu */
+    }
+
+    /* 2. Ajuste do Cabeçalho do Perfil (Avatar + Nome) */
+    .perfil-cabecalho {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .perfil-cabecalho figure img {
+        width: 100px; /* Reduz ligeiramente a foto de perfil */
+        height: 100px;
+    }
+
+    .perfil-cabecalho h1 {
+        font-size: 1.5rem; /* Evita que nomes longos quebrem a tela */
+    }
+
+    /* 3. Ajuste do Grid de Estatísticas e Atividades */
+    .layout-perfil {
+        grid-template-columns: 1fr; /* Transforma as duas colunas em uma linha sobre a outra */
+        gap: 20px;
+    }
+}
+
+/* 📱 Ajuste extra para Celulares Muito Pequenos (Telas até 400px) */
+@media (max-width: 400px) {
+    header nav ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Transforma o menu em uma grade 2x3 para não embolar */
+        width: 100%;
+        text-align: center;
+    }
+}

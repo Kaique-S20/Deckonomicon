@@ -1,0 +1,151 @@
+/* =========================================
+   VARIÁVEIS GLOBAIS E RESET
+========================================= */
+:root {
+    --bg-color: #121214;
+    --surface-color: #1e1e24;
+    --border-color: #2e2e38;
+    --brand-color: #b5e853;
+    --brand-hover: #9bd038;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* =========================================
+   HEADER GLOBAL (Top-Bar / Menu)
+========================================= */
+header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+header h2 {
+    color: var(--brand-color);
+    font-size: 1.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+header nav a:hover {
+    color: var(--brand-color);
+}
+
+/* Menu de Ações e Dropdown (<details>) */
+.user-actions ul {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+}
+
+.user-actions a[aria-label="Criar Novo Deck"] {
+    background-color: var(--brand-color);
+    color: #111;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.user-actions a[aria-label="Criar Novo Deck"]:hover {
+    background-color: var(--brand-hover);
+}
+
+details {
+    position: relative;
+    cursor: pointer;
+}
+
+details summary {
+    list-style: none;
+    color: var(--brand-color);
+    font-weight: bold;
+    padding: 6px 12px;
+    border: 1px solid var(--brand-color);
+    border-radius: 5px;
+    user-select: none;
+}
+
+details[open] summary {
+    background-color: var(--brand-color);
+    color: #111;
+}
+
+details ul {
+    position: absolute;
+    right: 0;
+    top: 120%;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    z-index: 100;
+    padding: 5px 0;
+    list-style: none;
+}
+
+details ul li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+details ul li a:hover {
+    background-color: var(--bg-color);
+    color: var(--brand-color);
+}
+
+/* =========================================
+   RODAPÉ GLOBAL
+========================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+

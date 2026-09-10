@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login-Deckonomicon</title>
-    <style>
-    </style>
+    <title>Login - DECKONOMICON</title>
+    
+    <!-- CSS Global (cores, fontes, fundo) -->
+    <link rel="stylesheet" href="frontend/assets/css/style.css">
+    
+    <!-- CSS Específico do Login (Card, botões, alinhamento) -->
+    <link rel="stylesheet" href="frontend/assets/css/login.css">
 </head>
 <body>
     <!--Cabeçalho principal-->
     <header>
-        <h1>Deckonomicon</h1>
+        <h1>DECKONOMICON</h1>
     </header>
 
     <main>
-        <div class="login-container"
+        <div class="login-container">
             <h2>Acesse sua Conta</h2>
 
-
-            <form action="home.html">
+            <form action="frontend/home.html">
                 <!--label para o email-->
                 <div class="input-group">
                     <label for="email">Email</label>
@@ -33,12 +36,12 @@
 
             <!--label para criar conta-->
                 <div class="links-adicionais">
-                <p>Criar conta<a href="cadastro.html"> Cadastre-se aqui</a></p>
+                <p>Criar conta<a href="frontend/cadastro.html"> Cadastre-se aqui</a></p>
                 </div>
 
             <!--Esqueceu senha-->
-                <div class="forgot password">
-                    <a href="recuperarSenha.html">Esqueceu Senha?</a>
+                <div class="forgot-password">
+                    <a href="frontend/recuperarSenha.html">Esqueceu Senha?</a>
                 </div>
 
                 <!--Botão de Confirmação de conta-->

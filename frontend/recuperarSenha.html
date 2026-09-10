@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Deckonomicon</title>
+
+    <!-- Puxa o tema escuro global (cores, fontes, rodapé) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Reaproveita o layout de card centralizado do Login! -->
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+
+    <!-- Cabeçalho principal -->
+    <header>
+        <h1>DECKONOMICON</h1>
+    </header>
+
+    <main>
+        <!-- Trocado para login-container para puxar o visual do Card -->
+        <div class="login-container">
+            <h2>Esqueceu sua senha?</h2>
+            
+            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem;">
+                Digite seu email abaixo e enviaremos um link para redefinir sua senha.
+            </p>
+            
+            <!-- Redireciona de volta para o login (../index.html) -->
+            <form action="../index.html">
+                <div class="input-group">
+                    <label for="email-recuperacao">Email cadastrado</label>
+                    <input type="email" id="email-recuperacao" placeholder="seu@email.com" required>
+                </div>
+
+                <!-- Trocado para btn-login para pegar a cor verde do botão -->
+                <button type="submit" class="btn-login">Enviar link de recuperação</button>
+
+                <div class="links-adicionais">
+                    <!-- Caminho corrigido com ../ para voltar uma pasta -->
+                    <p>Lembrou a senha? <a href="../index.html">Voltar para o login</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Deckonomicon. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

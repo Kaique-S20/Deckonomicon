@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Decks - Deckonomicon</title>
+    
+    <!-- Puxa o tema escuro, variáveis de cores e o cabeçalho base -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Puxa o grid, a tabela e o painel desta tela específica -->
+    <link rel="stylesheet" href="assets/css/meus-decks.css">
+    <!-- Puxa o estilo da janela flutuante (Modal) -->
+    <link rel="stylesheet" href="assets/css/modal.css">
+</head>
+<body>
+
+    <!-- Navegação Global -->
+    <header>
+        <h2>DECKONOMICON</h2>
+        <nav aria-label="Navegação Principal">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="meus-decks.html">Meus Decks</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="../index.html">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Barra de Ações Rápidas -->
+        <section class="acoes-deck">
+            <h1>Seus Decks de Commander</h1>
+            <!-- Botão agora abre o modal em vez de mudar de página -->
+            <button type="button" id="btn-abrir-modal" class="btn-novo-deck">+ Novo Deck</button>
+            <button type="button">+ Nova Pasta</button>
+        </section>
+
+        <!-- Layout em duas colunas: Tabela principal e Painel lateral -->
+        <div class="layout-dashboard">
+            
+            <!-- Conteúdo Principal: Tabela de Decks -->
+            <section class="lista-decks">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome do Deck</th>
+                            <th>Formato</th>
+                            <th>Cores</th>
+                            <th>Última Atualização</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="deck.html">Fome Insaciável</a></td>
+                            <td>Commander</td>
+                            <td>Golgari (Preto/Verde)</td>
+                            <td><time datetime="2026-09-02">Hoje</time></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Sindicato do Crime</a></td>
+                            <td>Commander</td>
+                            <td>Grixis</td>
+                            <td><time datetime="2026-08-20">Há 13 dias</time></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Painel Lateral Semântico -->
+            <aside class="decks-recentes">
+                <h2>Deck Mais Recente</h2>
+                <article>
+                    <figure>
+                        <img src="https://placehold.co/100x100/2ecc71/111?text=Y" alt="Ícone do Deck Golgari">
+                        <figcaption>Fome Insaciável</figcaption>
+                    </figure>
+                    <p>Status: Em construção (98/100)</p>
+                </article>
+            </aside>
+        </div>
+
+        <!-- ==========================================
+             ESTRUTURA DO MODAL (JANELA FLUTUANTE) 
+             ========================================== -->
+        <dialog id="modal-novo-deck" class="modal-criacao">
+            <div class="modal-header">
+                <h2>Criar Novo Deck</h2>
+                <button type="button" class="btn-fechar" id="btn-fechar-modal">&times;</button>
+            </div>
+            
+            <!-- O action envia o usuário para a página do deck recém-criado -->
+            <form action="deck.html">
+                <div class="input-group">
+                    <label for="deck-nome">Nome</label>
+                    <input type="text" id="deck-nome" required>
+                </div>
+                
+                <p class="aviso-modal">⚠️ O Deckonomicon é um ambiente amigável. Não toleramos o uso de linguagem ofensiva, abusiva ou preconceituosa.</p>
+
+                <!-- Divide Formato e Comandante lado a lado -->
+                <div class="linha-dupla">
+                    <div class="input-group">
+                        <label for="deck-formato">Formato</label>
+                        <select id="deck-formato">
+                            <option value="commander">Commander / EDH</option>
+                            <option value="standard">Standard</option>
+                            <option value="modern">Modern</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="deck-comandante">Comandante</label>
+                        <input type="text" id="deck-comandante" placeholder="🔍 Ex: Ygra, Eater of All">
+                        <label class="checkbox-legal"><input type="checkbox" checked> Buscar apenas cartas válidas</label>
+                    </div>
+                </div>
+
+                <div class="separador-modal"><span>Opções Avançadas</span></div>
+
+                <div class="input-group">
+                    <label for="deck-pasta">Pasta</label>
+                    <select id="deck-pasta">
+                        <option value="none">Sem Pasta</option>
+                        <option value="competitivo">Competitivos</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Visibilidade</label>
+                    <!-- Grupo de Radio Buttons estilizados como pílulas -->
+                    <div class="radio-pill-group">
+                        <label>
+                            <input type="radio" name="visibilidade" value="publico" checked>
+                            <span>Público</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="visibilidade" value="nao-listado">
+                            <span>Não Listado</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="visibilidade" value="privado">
+                            <span>Privado</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn-criar-deck">Criar</button>
+                </div>
+            </form>
+        </dialog>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Deckonomicon. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Lógica minúscula para abrir e fechar a janela -->
+    <script>
+        const modal = document.getElementById('modal-novo-deck');
+        const btnAbrir = document.getElementById('btn-abrir-modal');
+        const btnFechar = document.getElementById('btn-fechar-modal');
+
+        // Abre a janela ao clicar no botão "+ Novo Deck"
+        btnAbrir.addEventListener('click', () => {
+            modal.showModal();
+        });
+
+        // Fecha a janela ao clicar no "X"
+        btnFechar.addEventListener('click', () => {
+            modal.close();
+        });
+
+        // Fecha a janela se clicar fora dela (no fundo escuro)
+        modal.addEventListener('click', (evento) => {
+            const dimensoes = modal.getBoundingClientRect();
+            if (
+                evento.clientX < dimensoes.left || 
+                evento.clientX > dimensoes.right || 
+                evento.clientY < dimensoes.top || 
+                evento.clientY > dimensoes.bottom
+            ) {
+                modal.close();
+            }
+        });
+    </script>
+</body>
+</html>

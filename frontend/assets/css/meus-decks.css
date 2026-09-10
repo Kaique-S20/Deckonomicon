@@ -1,0 +1,244 @@
+/* =========================================
+   ESTILOS DA TELA MEUS DECKS (meus-decks.css)
+========================================= */
+
+/* Espaçamento Principal */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Barra de Ações (Título e Botões) */
+.acoes-deck {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--surface-color);
+    padding: 20px 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.acoes-deck h1 {
+    color: var(--brand-color);
+    font-size: 1.5rem;
+    flex-grow: 1; /* Empurra os botões para a direita */
+    margin: 0;
+}
+
+.acoes-deck button {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+/* Destaque para o botão "+ Novo Deck" */
+.acoes-deck a button {
+    background-color: var(--brand-color);
+    color: #111;
+    border-color: var(--brand-color);
+}
+
+.acoes-deck a button:hover {
+    background-color: var(--brand-hover);
+}
+
+.acoes-deck button:not(a button):hover {
+    background-color: var(--border-color);
+}
+
+/* Layout Principal: Duas Colunas */
+.layout-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Tabela espaçosa na esquerda, Sidebar fixa na direita */
+    gap: 25px;
+    align-items: start;
+}
+
+/* =========================================
+   TABELA DE DECKS
+========================================= */
+.lista-decks {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    overflow: hidden; /* Garante que os cantos da tabela fiquem arredondados */
+}
+
+.lista-decks table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.lista-decks th {
+    background-color: var(--bg-color);
+    color: var(--brand-color);
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.lista-decks td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Linhas zebradas/hover para melhor leitura */
+.lista-decks tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Links (Nomes dos decks) */
+.lista-decks td a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.lista-decks td a:hover {
+    color: var(--brand-color);
+}
+
+/* =========================================
+   PAINEL LATERAL (Sidebar)
+========================================= */
+.decks-recentes {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.decks-recentes h2 {
+    color: var(--brand-color);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.decks-recentes figure {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.decks-recentes img {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px; /* Avatar um pouco mais quadrado/arredondado */
+    object-fit: cover;
+    border: 2px solid var(--brand-color);
+    background-color: var(--bg-color);
+}
+
+.decks-recentes figcaption {
+    font-weight: bold;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.decks-recentes p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    background-color: var(--bg-color);
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* Responsividade: Empilha em telas menores */
+@media (max-width: 900px) {
+    .layout-dashboard {
+        grid-template-columns: 1fr;
+    }
+    .acoes-deck {
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================================
+   APENAS RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Corrige o Menu Superior (Header) para não cortar palavras */
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap; /* Faz os links pularem de linha em vez de espremer */
+        justify-content: center;
+        gap: 12px;
+        list-style: none;
+    }
+
+    header nav a {
+        font-size: 0.9rem;
+    }
+
+    /* 2. Barra de Ações: Empilha o título e os botões de forma limpa */
+    .acoes-deck {
+        flex-direction: column;
+        align-items: stretch; /* Faz os botões ocuparem a mesma largura */
+        text-align: center;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .acoes-deck h1 {
+        font-size: 1.3rem; /* Diminui levemente o título */
+        margin-bottom: 4px;
+    }
+
+    .acoes-deck button {
+        width: 100%; /* Botões fáceis de clicar no celular */
+        padding: 12px;
+    }
+
+    /* 3. Layout Principal: Empilha a Tabela e o Painel Lateral (Aside) */
+    .layout-dashboard {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* 4. Tabela: Resolve o sumiço das colunas criando uma rolagem lateral segura */
+    .lista-decks {
+        overflow-x: auto; /* Cria a barra de rolagem horizontal se necessário */
+        width: 100%;
+        display: block;
+    }
+
+    .lista-decks table {
+        min-width: 550px; /* Força as 4 colunas a existirem sem esmagar o texto */
+    }
+
+    .lista-decks th, 
+    .lista-decks td {
+        padding: 12px 14px; /* Diminui os espaçamentos internos para telas mobile */
+        font-size: 0.85rem;
+    }
+}
+

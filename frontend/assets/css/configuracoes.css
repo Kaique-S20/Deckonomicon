@@ -1,0 +1,209 @@
+/* =========================================
+   ESTILOS DA TELA DE CONFIGURAÇÕES
+========================================= */
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Card centralizado */
+.config-container {
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.config-container h1 {
+    color: var(--brand-color);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+/* Caixas de Agrupamento (Fieldset) */
+fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    background-color: var(--bg-color);
+}
+
+legend {
+    color: var(--brand-color);
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input de Texto */
+.input-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-text-group label {
+    color: var(--text-secondary);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.input-text-group input[type="text"] {
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-text-group input[type="text"]:focus {
+    border-color: var(--brand-color);
+}
+
+/* Inputs de Checkbox */
+.check-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.check-group:last-child {
+    margin-bottom: 0;
+}
+
+.check-group input[type="checkbox"] {
+    accent-color: var(--brand-color);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.check-group label {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    user-select: none; /* Evita selecionar o texto ao clicar rápido */
+}
+
+/* Botões de Ação */
+.acoes-form {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn-salvar {
+    background-color: var(--brand-color);
+    color: #111;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-salvar:hover {
+    background-color: var(--brand-hover);
+}
+
+.btn-cancelar {
+    background-color: transparent;
+    color: var(--text-secondary);
+    padding: 12px 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancelar:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+/* =========================================
+   APENAS RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Corrige o Menu Superior (Header) para não espremer os links */
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        list-style: none;
+    }
+
+    header nav a {
+        font-size: 0.9rem;
+    }
+
+    /* 2. Ajusta o container principal para não colar nas bordas do celular */
+    .config-container {
+        margin: 20px auto;
+        padding: 20px 15px;
+        width: 92%;
+    }
+
+    .config-container h1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    /* 3. Alinha perfeitamente as caixas de seleção com os textos longos */
+    .check-group {
+        display: flex;
+        align-items: flex-start; /* Alinha a caixinha no topo da primeira linha do texto */
+        gap: 10px;
+    }
+
+    .check-group input[type="checkbox"] {
+        margin-top: 3px; /* Ajuste fino para a caixinha não subir */
+        flex-shrink: 0; /* Impede a caixinha de amassar no celular */
+    }
+
+    .check-group label {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    /* 4. Empilha os botões de Salvar e Cancelar para facilitar o toque */
+    .acoes-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .acoes-form button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+    }
+}

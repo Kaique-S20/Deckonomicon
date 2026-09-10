@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/deck.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck: Fome Insaciável - Deckonomicon</title>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="nav-content">
+            <h1>DECKONOMICON</h1>
+            <nav>
+                <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="meus-decks.html">Meus Decks</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="../index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Layout do Deck -->
+        <div class="layout-construtor">
+            
+            <!-- Barra lateral exclusiva do Comandante -->
+            <aside class="comandante-area">
+                <h2>Comandante</h2>
+                <article>
+                    <figure>
+                        <img src="https://placehold.co/250x350/png" alt="Arte da carta Ygra, Eater of All">
+                        <figcaption>Ygra, Eater of All</figcaption>
+                    </figure>
+                    <div class="estatisticas">
+                        <p>Total de Cartas: 100</p>
+                        <p>Valor Estimado: $ 185.00</p>
+                    </div>
+                </article>
+            </aside>
+
+            <!-- Lista de cartas e formulário agrupados -->
+            <div class="conteudo-principal-deck">
+                <!-- Formulário para adicionar novas cartas ao baralho -->
+                <section class="adicionar-carta">
+                    <form action="#">
+                        <label for="busca-carta">Adicionar carta ao deck:</label>
+                        <input type="text" id="busca-carta" placeholder="Digite o nome da carta..." required>
+                        <button type="submit">Adicionar</button>
+                    </form>
+                </section>
+
+                <section class="lista-cartas">
+                    <section class="categoria">
+                        <h3>Criaturas (28)</h3>
+                        <ul>
+                            <li>1x Gilded Goose - $ 1.50</li>
+                            <li>1x Ravenous Squirrel - $ 0.75</li>
+                            <li>1x Scavenging Ooze - $ 0.50</li>
+                        </ul>
+                    </section>
+                    <!-- (demais categorias...) -->
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Deckonomicon. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
