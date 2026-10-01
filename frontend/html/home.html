@@ -6,10 +6,23 @@
     <title>Home - DECKONOMICON</title>
     
     <!-- Puxa o tema escuro global -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../style/css/style.css">
+
+    <!-- Biblioteca de Ícones de Mana do MTG -->
+    <link href="https://cdn.jsdelivr.net/npm/mana-font@latest/css/mana.min.css" rel="stylesheet" type="text/css" />
     
     <!-- Estilo específico da busca centralizada -->
-    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="../style/css/home.css">
+
+    <!-- Puxa o tema escuro global -->
+    <link rel="stylesheet" href="../style/css/style.css">
+    
+    <!-- Estilo específico da busca centralizada -->
+    <link rel="stylesheet" href="../style/css/home.css">
+
+    <!-- CSS dos Modais do Sistema (ESSENCIAL PARA FUNCIONAR) -->
+    <link rel="stylesheet" href="../style/css/modal.css">
+
 </head>
 <body>
 
@@ -23,7 +36,7 @@
                 <li><a href="comunidade.html">Comunidade</a></li>
                 <li><a href="configuracoes.html">Configurações</a></li>
                 <li><a href="perfil.html">Perfil</a></li>
-                <li><a href="../index.html">Sair</a></li>
+                <li><a href="../../index.html">Sair</a></li>
             </ul>
         </nav>
     </header>
@@ -34,28 +47,32 @@
             <p>A sua plataforma definitiva para construir decks de Magic: The Gathering</p>
 
             <form>
-                <fieldset>
-                    <legend>Filtrar busca por:</legend>
-                    
-                    <input type="radio" id="filtro-cartas" name="tipo_busca" value="cartas" checked>
-                    <label for="filtro-cartas">Cartas</label>
-                    
-                    <input type="radio" id="filtro-decks" name="tipo_busca" value="decks">
-                    <label for="filtro-decks">Decks</label>
-                </fieldset>
-
                 <div class="input-busca-group">
                     <label for="busca-principal">O que você está procurando?</label>
                     <input type="search" id="busca-principal" placeholder="Ex: Ygra, Eater of All..." required>
                     <button type="submit">Pesquisar</button>
                 </div>
             </form>
+                <!-- Espaço reservado para o JS injetar os resultados -->
+                <div id="resultados-busca" class="resultados-container"></div>
         </section>
     </main>
+
+    <!-- Modal para exibir a carta em tela cheia -->
+    <div id="modal-carta">
+        <div class="modal-imagem-conteudo">
+            <span class="btn-fechar-imagem">&times;</span>
+            <img id="img-carta-modal" src="" alt="Arte da Carta em Alta Resolução">
+            <!-- Espaço reservado para o preço -->
+            <h3 id="preco-carta-modal" style="color: var(--brand-color); margin-top: 15px; font-weight: bold;"></h3>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Deckonomicon. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="../scripts/apiService.js"></script>
 
 </body>
 </html>

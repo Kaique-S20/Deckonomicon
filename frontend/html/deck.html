@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="../style/css/style.css">
+    <link rel="stylesheet" href="../style/css/deck.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck: Fome Insaciável - Deckonomicon</title>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="nav-content">
+            <h1>DECKONOMICON</h1>
+            <nav>
+                <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="meus-decks.html">Meus Decks</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="../../index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Layout do Deck -->
+        <div class="layout-construtor">
+            
+            <!-- Barra lateral dinâmica -->
+            <aside class="comandante-area" id="painel-carta">
+                <h2 id="painel-titulo">Comandante</h2> <!-- Este título vai mudar para o tipo da carta -->
+                <article>
+                    <figure>
+                        <!-- Adicionei IDs para atualizar a imagem e legenda -->
+                        <img id="painel-img" src="https://placehold.co/250x350/png" alt="Arte da carta">
+                        <figcaption id="painel-nome">Ygra, Eater of All</figcaption>
+                    </figure>
+                    <div class="estatisticas">
+                        <p id="painel-total">Total de Cartas: 0</p>
+                        <p id="painel-valor">Valor Estimado: $ 0.00</p>
+                    </div>
+                </article>
+            </aside>
+
+            <!-- Lista de cartas e formulário agrupados -->
+            <div class="conteudo-principal-deck">
+                
+                <!-- Formulário para adicionar novas cartas ao baralho -->
+                <section class="adicionar-carta">
+                    <form action="#" id="form-adicionar-carta">
+                        <label for="busca-carta">Adicionar carta ao deck:</label>
+                        <div style="position: relative; flex-grow: 1; display: flex; gap: 10px;">
+                            <input type="text" id="busca-carta" placeholder="Digite o nome da carta..." autocomplete="off" style="flex-grow: 1;">
+                            
+                            <!-- NOVO: Campo de quantidade -->
+                            <input type="number" id="qtd-carta" value="1" min="1" style="width: 70px; text-align: center; border-radius: 4px; border: 1px solid var(--border-color); background: var(--surface-color); color: var(--text-primary);">
+                            
+                            <button type="submit" id="btn-adicionar">Adicionar</button>
+                            
+                            <ul id="sugestoes-carta" style="display: none; position: absolute; top: 100%; left: 0; right: 100px; background: var(--surface-color); border: 1px solid var(--brand-color); border-radius: 6px; list-style: none; padding: 0; margin-top: 5px; max-height: 200px; overflow-y: auto; z-index: 1000;"></ul>
+                        </div>
+                    </form>
+
+                    <!-- Painel de Terrenos Básicos de Acesso Rápido -->
+                    <div id="painel-terrenos-basicos" style="display: flex; gap: 8px; margin-top: 15px; align-items: center; flex-wrap: wrap;">
+                        <span style="color: var(--text-secondary); font-size: 0.9em; margin-right: 5px;">Terrenos Básicos:</span>
+                        
+                        <button type="button" class="btn-add-terreno" data-land="Plains" style="cursor: pointer; padding: 5px 12px; border-radius: 4px; border: none; background: #e8e4d7; color: #111; font-weight: bold; transition: opacity 0.2s;">☀️ Planície</button>
+                        
+                        <button type="button" class="btn-add-terreno" data-land="Island" style="cursor: pointer; padding: 5px 12px; border-radius: 4px; border: none; background: #c1d8e9; color: #111; font-weight: bold; transition: opacity 0.2s;">💧 Ilha</button>
+                        
+                        <button type="button" class="btn-add-terreno" data-land="Swamp" style="cursor: pointer; padding: 5px 12px; border-radius: 4px; border: none; background: #cbc2bf; color: #111; font-weight: bold; transition: opacity 0.2s;">💀 Pântano</button>
+                        
+                        <button type="button" class="btn-add-terreno" data-land="Mountain" style="cursor: pointer; padding: 5px 12px; border-radius: 4px; border: none; background: #e49977; color: #111; font-weight: bold; transition: opacity 0.2s;">🔥 Montanha</button>
+                        
+                        <button type="button" class="btn-add-terreno" data-land="Forest" style="cursor: pointer; padding: 5px 12px; border-radius: 4px; border: none; background: #a3c095; color: #111; font-weight: bold; transition: opacity 0.2s;">🌳 Floresta</button>
+                    </div>
+                </section>
+
+                <!-- Aqui serão injetadas as categorias pelo JavaScript -->
+                <section class="lista-cartas" id="container-lista-cartas">
+                </section>
+                
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Deckonomicon. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../scripts/deckConstrutor.js"></script>
+
+</body>
+</html>

@@ -6,11 +6,11 @@
     <title>Meus Decks - Deckonomicon</title>
     
     <!-- Puxa o tema escuro, variáveis de cores e o cabeçalho base -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../style/css/style.css">
     <!-- Puxa o grid, a tabela e o painel desta tela específica -->
-    <link rel="stylesheet" href="assets/css/meus-decks.css">
+    <link rel="stylesheet" href="../style/css/meus-decks.css">
     <!-- Puxa o estilo da janela flutuante (Modal) -->
-    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="../style/css/modal.css">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
                 <li><a href="comunidade.html">Comunidade</a></li>
                 <li><a href="configuracoes.html">Configurações</a></li>
                 <li><a href="perfil.html">Perfil</a></li>
-                <li><a href="../index.html">Sair</a></li>
+                <li><a href="../../index.html">Sair</a></li>
             </ul>
         </nav>
     </header>
@@ -35,7 +35,7 @@
             <h1>Seus Decks de Commander</h1>
             <!-- Botão agora abre o modal em vez de mudar de página -->
             <button type="button" id="btn-abrir-modal" class="btn-novo-deck">+ Novo Deck</button>
-            <button type="button">+ Nova Pasta</button>
+            <button type="button" id="btn-nova-pasta" class="btn-novo-deck">+ Nova Pasta</button>
         </section>
 
         <!-- Layout em duas colunas: Tabela principal e Painel lateral -->
@@ -52,20 +52,7 @@
                             <th>Última Atualização</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="deck.html">Fome Insaciável</a></td>
-                            <td>Commander</td>
-                            <td>Golgari (Preto/Verde)</td>
-                            <td><time datetime="2026-09-02">Hoje</time></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">Sindicato do Crime</a></td>
-                            <td>Commander</td>
-                            <td>Grixis</td>
-                            <td><time datetime="2026-08-20">Há 13 dias</time></td>
-                        </tr>
-                    </tbody>
+                    <tbody id="tabela-decks-body"></tbody>
                 </table>
             </section>
 
@@ -74,10 +61,11 @@
                 <h2>Deck Mais Recente</h2>
                 <article>
                     <figure>
-                        <img src="https://placehold.co/100x100/2ecc71/111?text=Y" alt="Ícone do Deck Golgari">
-                        <figcaption>Fome Insaciável</figcaption>
+                        <!-- Adicionamos os IDs aqui! -->
+                        <img id="painel-img" src="https://placehold.co/100x100/2ecc71/111?text=Y" alt="Ícone do Deck">
+                        <figcaption id="painel-nome">...</figcaption>
                     </figure>
-                    <p>Status: Em construção (98/100)</p>
+                    <p id="painel-status">...</p>
                 </article>
             </aside>
         </div>
@@ -92,13 +80,13 @@
             </div>
             
             <!-- O action envia o usuário para a página do deck recém-criado -->
-            <form action="deck.html">
+            <form id="form-novo-deck">
                 <div class="input-group">
                     <label for="deck-nome">Nome</label>
                     <input type="text" id="deck-nome" required>
                 </div>
                 
-                <p class="aviso-modal">⚠️ O Deckonomicon é um ambiente amigável. Não toleramos o uso de linguagem ofensiva, abusiva ou preconceituosa.</p>
+                <p class="aviso-modal">⚠️ O Deckonomicon é um ambiente amigável.</p>
 
                 <!-- Divide Formato e Comandante lado a lado -->
                 <div class="linha-dupla">
@@ -110,10 +98,18 @@
                             <option value="modern">Modern</option>
                         </select>
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" style="position: relative;">
                         <label for="deck-comandante">Comandante</label>
-                        <input type="text" id="deck-comandante" placeholder="🔍 Ex: Ygra, Eater of All">
-                        <label class="checkbox-legal"><input type="checkbox" checked> Buscar apenas cartas válidas</label>
+                        <!-- O autocomplete="off" impede o navegador de jogar sugestões antigas por cima da nossa API -->
+                        <input type="text" id="deck-comandante" placeholder="🔍 Ex: Ygra, Eater of All" autocomplete="off">
+                        
+                        <!-- Lista flutuante do Scryfall (fica invisível até o JS acionar) -->
+                        <ul id="sugestoes-comandante" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--surface-color); border: 1px solid var(--brand-color); border-radius: 6px; list-style: none; padding: 0; margin-top: 5px; max-height: 200px; overflow-y: auto; z-index: 1000;"></ul>
+                        
+                        <!-- Adicionamos o ID no checkbox -->
+                        <label class="checkbox-legal">
+                            <input type="checkbox" id="check-comandante-valido" checked> Buscar apenas cartas válidas
+                        </label>
                     </div>
                 </div>
 
@@ -123,31 +119,31 @@
                     <label for="deck-pasta">Pasta</label>
                     <select id="deck-pasta">
                         <option value="none">Sem Pasta</option>
-                        <option value="competitivo">Competitivos</option>
                     </select>
-                </div>
-
-                <div class="input-group">
-                    <label>Visibilidade</label>
-                    <!-- Grupo de Radio Buttons estilizados como pílulas -->
-                    <div class="radio-pill-group">
-                        <label>
-                            <input type="radio" name="visibilidade" value="publico" checked>
-                            <span>Público</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="visibilidade" value="nao-listado">
-                            <span>Não Listado</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="visibilidade" value="privado">
-                            <span>Privado</span>
-                        </label>
-                    </div>
                 </div>
 
                 <div class="modal-footer">
                     <button type="submit" class="btn-criar-deck">Criar</button>
+                </div>
+            </form>
+        </dialog>
+        <!-- ==========================================
+             ESTRUTURA DO MODAL (NOVA PASTA) 
+             ========================================== -->
+        <dialog id="modal-nova-pasta" class="modal-criacao">
+            <div class="modal-header">
+                <h2>Criar Nova Pasta</h2>
+                <button type="button" class="btn-fechar" id="btn-fechar-pasta">&times;</button>
+            </div>
+            
+            <form id="form-nova-pasta">
+                <div class="input-group">
+                    <label for="pasta-nome">Nome da Pasta</label>
+                    <input type="text" id="pasta-nome" placeholder="Ex: Decks Competitivos" required>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="submit" class="btn-criar-deck">Criar Pasta</button>
                 </div>
             </form>
         </dialog>
@@ -158,34 +154,6 @@
         <p>&copy; 2026 Deckonomicon. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Lógica minúscula para abrir e fechar a janela -->
-    <script>
-        const modal = document.getElementById('modal-novo-deck');
-        const btnAbrir = document.getElementById('btn-abrir-modal');
-        const btnFechar = document.getElementById('btn-fechar-modal');
-
-        // Abre a janela ao clicar no botão "+ Novo Deck"
-        btnAbrir.addEventListener('click', () => {
-            modal.showModal();
-        });
-
-        // Fecha a janela ao clicar no "X"
-        btnFechar.addEventListener('click', () => {
-            modal.close();
-        });
-
-        // Fecha a janela se clicar fora dela (no fundo escuro)
-        modal.addEventListener('click', (evento) => {
-            const dimensoes = modal.getBoundingClientRect();
-            if (
-                evento.clientX < dimensoes.left || 
-                evento.clientX > dimensoes.right || 
-                evento.clientY < dimensoes.top || 
-                evento.clientY > dimensoes.bottom
-            ) {
-                modal.close();
-            }
-        });
-    </script>
+    <script src="../scripts/meus-decks.js"></script>
 </body>
 </html>
