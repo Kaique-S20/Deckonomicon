@@ -168,70 +168,7 @@
    APENAS RESPONSIVIDADE (MEDIA QUERIES)
 ========================================= */
 
-@media (max-width: 1023px) {
-    /* 1. Corrige o Menu Superior específico desta tela */
-    .top-bar .nav-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        padding: 15px;
-        text-align: center;
-    }
-
-    .top-bar nav ul {
-        display: flex;
-        gap: 15px;
-        list-style: none;
-    }
-
-    /* 2. Formulário: Empilha o input e o botão para não esmagar no celular */
-    .adicionar-carta form {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    .adicionar-carta input[type="text"] {
-        width: 100%;
-    }
-
-    /* Faz o botão ocupar toda a largura do formulário, facilitando o toque */
-    .adicionar-carta button[type="submit"] {
-        width: 100%;
-        padding: 14px;
-    }
-
-    /* 3. Ajuste de Imagem: Garante que a carta do comandante fique centralizada */
-    .comandante-area img {
-        max-width: 200px;
-    }
-}
-/* =========================================
-   APENAS RESPONSIVIDADE (MEDIA QUERIES)
-========================================= */
-
 @media (max-width: 768px) {
-    /* 1. Corrige o Menu Superior específico desta tela */
-    .top-bar .nav-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        padding: 15px;
-    }
-
-    .top-bar nav ul {
-        display: flex;
-        flex-wrap: wrap; /* Permite que os links quebrem de linha de forma organizada */
-        justify-content: center;
-        gap: 12px;
-        list-style: none;
-    }
-
-    .top-bar nav a {
-        font-size: 0.9rem;
-    }
 
     /* 2. Remove margens excessivas do construtor no celular */
     .layout-construtor {
