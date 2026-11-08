@@ -343,3 +343,42 @@ function atualizarEstatisticas() {
     painelTotal.textContent = `Total de Cartas: ${totalCartas}`;
     painelValor.textContent = `Valor Estimado: $ ${valorTotal.toFixed(2)}`;
 }
+
+// =======================================================
+// SIMULAÇÃO DE SUBMISSÃO AO SERVIDOR (REQUISITO ETAPA 5 POST)
+// =======================================================
+const btnSalvarDeck = document.getElementById('btn-salvar-deck');
+
+if (btnSalvarDeck) {
+    btnSalvarDeck.addEventListener('click', async () => {
+        console.log("Enviando deck para o servidor... aguarde.");
+        
+        try {
+            // Cria um payload simples para simular o envio
+            const payload = {
+                titulo: "Deck Atual",
+                timestamp: new Date().toISOString()
+            };
+
+            const resposta = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!resposta.ok) {
+                throw new Error(`Erro HTTP: ${resposta.status}`);
+            }
+
+            const dadosSalvos = await resposta.json();
+            console.log("Sucesso! ID gerado pelo mock server:", dadosSalvos.id);
+            alert("O deck foi salvo com sucesso no servidor!");
+
+        } catch (erro) {
+            console.error("Falha na submissão:", erro);
+            alert("Ocorreu um erro ao tentar salvar o deck no servidor.");
+        }
+    });
+}

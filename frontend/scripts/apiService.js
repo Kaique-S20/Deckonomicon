@@ -144,3 +144,57 @@ formBusca.addEventListener('submit', function(evento) {
     // Chama a função da API passando o que o usuário digitou
     buscarCartaNoScryfall(termoBuscado);
 });
+
+// =======================================================
+// 4. SIMULAÇÃO DE SUBMISSÃO AO SERVIDOR (REQUISITO ETAPA 5)
+// =======================================================
+
+async function salvarDeckNoServidor(nomeDoDeck, cartasDoDeck) {
+    try {
+        // 1. Tratamento de carregamento
+        console.log("Enviando deck para o servidor... aguarde.");
+        
+        // Prepara o "pacote" de dados (Payload) para enviar
+        const payload = {
+            titulo: nomeDoDeck,
+            cartas: cartasDoDeck,
+            idUsuario: 1 // Simulando que é o seu usuário logado
+        };
+
+        // 2. Operação submetida ao serviço simulado (Método POST)
+        // Usamos o JSONPlaceholder, uma API fake perfeita para testes acadêmicos
+        const resposta = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        // 3. Tratamento de erro de comunicação
+        if (!resposta.ok) {
+            throw new Error(`Erro no servidor: Status ${resposta.status}`);
+        }
+
+        // 4. Tratamento de sucesso
+        const dadosSalvos = await resposta.json();
+        console.log("Sucesso! Deck salvo no banco de dados com o ID:", dadosSalvos.id);
+        alert(`O deck "${nomeDoDeck}" foi salvo com sucesso no servidor!`);
+
+    } catch (erro) {
+        // Tratamento de erro final
+        console.error("Falha ao salvar:", erro.message);
+        alert("Ocorreu um erro ao tentar salvar o deck no servidor.");
+    }
+}
+
+// Exemplo de como você chamaria essa função na tela de Deck
+// Supondo que você crie um botão <button id="btn-salvar-deck">Salvar Deck</button> no seu HTML
+const btnSalvarDeck = document.getElementById('btn-salvar-deck');
+if (btnSalvarDeck) {
+    btnSalvarDeck.addEventListener('click', () => {
+        // Simula as cartas que o usuário já adicionou na tela
+        const cartasAtuais = ["Ygra, Eater of All", "Sol Ring", "Swamp"];
+        salvarDeckNoServidor("Fome Insaciável", cartasAtuais);
+    });
+}
