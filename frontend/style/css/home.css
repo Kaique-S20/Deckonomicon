@@ -34,43 +34,6 @@
     gap: 20px;
 }
 
-/* Filtros por Rádio (<fieldset>) */
-.hero-busca fieldset {
-    border: 1px solid var(--border-color);
-    background-color: var(--bg-color);
-    border-radius: 8px;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-}
-
-.hero-busca fieldset legend {
-    color: var(--brand-color);
-    font-size: 0.8rem;
-    font-weight: bold;
-    padding: 0 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.hero-busca fieldset label {
-    color: var(--text-primary);
-    font-size: 0.95rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.hero-busca fieldset input[type="radio"] {
-    accent-color: var(--brand-color);
-    cursor: pointer;
-    width: 16px;
-    height: 16px;
-}
-
 /* Grupo do Input de Pesquisa */
 .input-busca-group {
     display: flex;
