@@ -1,0 +1,126 @@
+{
+  "info": {
+    "name": "Deckonomicon API - Etapa 06",
+    "description": "Coleção de testes da API REST do projeto Deckonomicon (CRUD de Decks).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Listar todos os decks (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/decks",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "decks"]
+        }
+      }
+    },
+    {
+      "name": "2. Buscar deck por ID (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/decks/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "decks", "1"]
+        }
+      }
+    },
+    {
+      "name": "3. Criar novo deck (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Fúria de Korvold\",\n  \"comandante\": \"Korvold, Fae-Cursed King\",\n  \"formato\": \"Commander\",\n  \"cartas\": [\"Sol Ring\", \"Cultivate\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/decks",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "decks"]
+        }
+      }
+    },
+    {
+      "name": "4. Atualizar deck existente (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Fúria de Korvold v2\",\n  \"comandante\": \"Korvold, Fae-Cursed King\",\n  \"formato\": \"Commander\",\n  \"cartas\": [\"Sol Ring\", \"Cultivate\", \"Arcane Signet\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/decks/2",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "decks", "2"]
+        }
+      }
+    },
+    {
+      "name": "5. Remover deck (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/decks/2",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "decks", "2"]
+        }
+      }
+    },
+    {
+      "name": "6. Erro 400 - Criar deck sem nome (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comandante\": \"Henzie, Toolbox Torre\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/decks",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "decks"]
+        }
+      }
+    },
+    {
+      "name": "7. Erro 404 - Buscar deck inexistente (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/decks/999",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "decks", "999"]
+        }
+      }
+    }
+  ]
+}
